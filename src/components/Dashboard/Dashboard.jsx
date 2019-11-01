@@ -1,6 +1,7 @@
 import React from 'react'
 import Product from '../Product/Product'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 export default class Dashboard extends React.Component{
 constructor(){
@@ -39,6 +40,11 @@ constructor(){
                 {this.props.editing ? 'true' : 'false'}
                 
             </h3>
+
+
+            <Link to='/new'>
+            <button>ADD NEW PRODUCT</button>
+            </Link>
 
 
 

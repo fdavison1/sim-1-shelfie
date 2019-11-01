@@ -5,6 +5,8 @@ import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
 import Form from './components/Form/Form'
 import axios from 'axios'
+import {Switch, Route} from 'react-router-dom'
+// import routes from './routes'
 
 export default class App extends React.Component{
   constructor(){
@@ -66,7 +68,7 @@ editFalse(){
         <Header />
         
 
-        { this.state.editing ?
+        {/* { this.state.editing ?
         <h1>EditID: {this.state.editID}</h1>
         :null}
 
@@ -86,11 +88,63 @@ editFalse(){
         inventory = {this.props.inventory}
         editFalse = {this.editFalse}
         editID = {this.state.editID}
+        /> */}
+
+{/* ROUTES? */}
+
+<Switch>
+        <Route
+            exact
+            path='/'
+            component={() => (
+                <Dashboard
+                    inventory={this.state.inventory}
+                    getInventory={this.getInventory}
+                    editToggle={this.editToggle}
+                    editing={this.state.editing}
+                />
+            )}
         />
+
+        
+        { !this.state.editing ?
+        <Route 
+        path='/new'
+        component={()=> (
+            <Form 
+            postProduct = {this.postProduct}
+            getInventory = {this.getInventory}
+            editing = {this.state.editing}
+            inventory = {this.props.inventory}
+            editFalse = {this.editFalse}
+            editID = {this.state.editID}
+            />
+        )}
+        /> 
+        
+        :
+
+        <Route 
+        path='/edit'
+        component={()=> (
+            <Form 
+            postProduct = {this.postProduct}
+            getInventory = {this.getInventory}
+            editing = {this.state.editing}
+            inventory = {this.props.inventory}
+            editFalse = {this.editFalse}
+            editID = {this.state.editID}
+            />
+        )}
+        />}
+
+    </Switch>
+
+
 
         </div>
 
-      </div>
+      // </div>
     )
   }
 }

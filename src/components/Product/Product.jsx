@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Product extends React.Component{
     constructor(){
@@ -31,10 +32,15 @@ export default class Product extends React.Component{
             </button>
 
             {/* edit button */}
+            
+            <Link to='/edit'>
             <button
             onClick={()=>this.props.editToggle(this.props.inventory.id)}
             >Edit</button>
+            </Link>
             
+
+
             </div>
             </div>
 
