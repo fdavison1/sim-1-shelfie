@@ -33,8 +33,6 @@ header h1 {
   margin: 15px;
 }
 
-/* SECTIONS */
-
 /* PRODUCT */
 .product {
   border: solid black;
@@ -43,7 +41,7 @@ header h1 {
   display: flex;
   align-items: center;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: space-evenly;
   /* flex-direction: column; */
 }
 
@@ -55,6 +53,11 @@ header h1 {
 /* FORM */
 .form-div {
   border: solid black;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+  /* display: flex;
+  justify-content: space-around; */
 }
 
 .container {
@@ -71,8 +74,20 @@ h3 {
 
 button {
   font-size: 2rem;
+  margin: 10px 2px;
 }
 
+h2, h1 {
+  font-size: 1.5rem;
+}
+
+span {
+  font-size: 5rem;
+  background: yellow;
+  /* text-decoration-line: underline; */
+  /* text-decoration-style: solid black; */
+  margin: 5px;
+}
 
 
 

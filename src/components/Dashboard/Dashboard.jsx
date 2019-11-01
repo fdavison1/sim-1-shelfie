@@ -35,11 +35,11 @@ constructor(){
         return(
             <div>
             
-            <h3>Editing: 
+            {/* <h3>Editing: 
                 
                 {this.props.editing ? 'true' : 'false'}
                 
-            </h3>
+            </h3> */}
 
 
             <Link to='/new'>

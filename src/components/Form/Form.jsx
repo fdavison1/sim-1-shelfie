@@ -74,6 +74,10 @@ export default class Form extends React.Component {
         return (
             <div className='form-div'>
 
+                <Link to='/'>
+                <button>BACK</button>
+                </Link>
+
                 {/* IMAGE PREVIEW? */}
 
                 {/* making new card */}
@@ -138,10 +142,12 @@ export default class Form extends React.Component {
 
                     {!this.props.editing ?
 
+                        <Link to='/'>
                         <button
                             onClick={() => this.postProduct()}
-                        >Add to Inventory
-                </button> : null}
+                            >Add to Inventory
+                            
+                </button></Link> : null}
 
                     {this.props.editing ?
 
@@ -155,6 +161,12 @@ export default class Form extends React.Component {
                 <hr />
 
 
+
+            { this.props.editing ?   <h1>
+                <span>
+                    EDIT ID: {this.props.editID}
+                    </span>    
+                    </h1> :null}
 
             </div>
         )
