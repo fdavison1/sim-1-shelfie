@@ -11,10 +11,12 @@ export default class App extends React.Component{
     super()
     this.state = {
       inventory : [],
-      editing: false
+      editing: false,
+      editID: ''
     }
     this.getInventory = this.getInventory.bind(this)
     this.editToggle = this.editToggle.bind(this)
+    this.editFalse = this.editFalse.bind(this)
   }
 
 
@@ -35,11 +37,27 @@ getInventory(){
 }
 
 
-editToggle(){
+//when edit button is clicked...
+editToggle(id){
   this.setState({
-      editing: !this.state.editing
+      editing: true,
+      editID: id
   })
 }
+
+
+// selectID(){
+
+// }
+
+//when cancel button is clicked...
+editFalse(){
+  this.setState({
+    editing: false
+  })
+}
+
+
 
 
   render(){
@@ -47,6 +65,11 @@ editToggle(){
       <div className = "App">
         <Header />
         
+
+        { this.state.editing ?
+        <h1>EditID: {this.state.editID}</h1>
+        :null}
+
         <div className='container'>
 
         <Dashboard 
@@ -61,6 +84,8 @@ editToggle(){
         getInventory = {this.getInventory}
         editing = {this.state.editing}
         inventory = {this.props.inventory}
+        editFalse = {this.editFalse}
+        editID = {this.state.editID}
         />
 
         </div>

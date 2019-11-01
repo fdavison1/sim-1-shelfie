@@ -19,7 +19,7 @@ export default class Product extends React.Component{
 
             <div className="product-label"></div>
             <h1>{this.props.inventory.name}</h1>
-            <h2>${this.props.inventory.price}</h2>
+            <h2>${this.props.inventory.price}.00</h2>
 
             {/* buttons */}
             <div className='buttons2'>
@@ -32,7 +32,7 @@ export default class Product extends React.Component{
 
             {/* edit button */}
             <button
-            onClick={()=>this.props.editToggle()}
+            onClick={()=>this.props.editToggle(this.props.inventory.id)}
             >Edit</button>
             
             </div>
