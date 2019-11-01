@@ -84,6 +84,11 @@ h3 {
 button {
   font-size: 2rem;
   margin: 10px 2px;
+  /* border: solid #AB2A19; */
+}
+
+button:hover {
+  background: #AB2A19;
 }
 
 h2, h1 {
