@@ -11,3 +11,10 @@
 section {
   border: solid red;
 }
+
+/* PRODUCT */
+.product {
+  border: solid black;
+  max-width: 1000px;
+  margin: 0 auto;
+}

@@ -43,7 +43,9 @@ cancelButton(){
                 Form.jsx
 
                 {/* IMAGE PREVIEW? */}
-                <section className="form-preview"></section>
+                <section className="form-preview">
+                    (Image Preview)
+                </section>
 
                 {/* INPUTS */}
                 <section className="inputs-div">

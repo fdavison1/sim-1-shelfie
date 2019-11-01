@@ -1,14 +1,15 @@
 //requirements
 require('dotenv').config()
 const express = require('express')
-const {PORT, STRING} = process.env
 const massive = require('massive')
-// const ctrl = require('./controller')
+const ctrl = require('./controller')
+const {PORT, STRING} = process.env
 
 const app = express()
-app.use(express.json)
+app.use(express.json())
 
 //endpoints
+app.get('/api/inventory', ctrl.getInventory)
 
 //massive - listening
 
