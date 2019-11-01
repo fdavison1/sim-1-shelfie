@@ -118,11 +118,7 @@ postProduct(){
 
                 <hr/>
 
-                <h2>Editing: 
                 
-                {this.state.editing ? 'true' : 'false'}
-                
-                </h2>
 
             </div>
         )

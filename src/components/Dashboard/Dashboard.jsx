@@ -6,9 +6,10 @@ export default class Dashboard extends React.Component{
 constructor(){
     super()
     this.state = {
-
+        editing: false
     }
     this.deleteProduct = this.deleteProduct.bind(this)
+    this.editToggle = this.editToggle.bind(this)
 }
 
 
@@ -21,12 +22,23 @@ constructor(){
         })
     }
 
+    editToggle(){
+        this.setState({
+            editing: !this.state.editing
+        })
+    }
+
 
     render(){
 
         return(
             <div>
-            Dashboard.jsx
+            
+            <h3>Editing: 
+                
+                {this.state.editing ? 'true' : 'false'}
+                
+            </h3>
 
 
 
@@ -36,6 +48,7 @@ constructor(){
                 <Product 
                 inventory = {el}
                 deleteProduct = {this.deleteProduct}
+                editToggle = {this.editToggle}
                 />
                 
                 ))}

@@ -1,29 +1,38 @@
 import React from 'react'
 
-export default function Product(props){
-    return(
-        <div className="product">
+export default class Product extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            editing: false
+        }
+    }
+    render(){
+
+        return(
+            <div className="product">
 
 
-            <img src={props.inventory.img} alt={props.inventory.name}/>
+            <img src={this.props.inventory.img} alt={this.props.inventory.name}/>
             
             <div className="product-image">
 
             <div className="product-label"></div>
-            <h1>{props.inventory.name}</h1>
-            <h2>${props.inventory.price}</h2>
+            <h1>{this.props.inventory.name}</h1>
+            <h2>${this.props.inventory.price}</h2>
 
             {/* buttons */}
             <div className='buttons2'>
 
             {/* delete button */}
             <button
-            onClick={()=>props.deleteProduct(props.inventory.id)}
+            onClick={()=>this.props.deleteProduct(this.props.inventory.id)}
             >Delete
             </button>
 
             {/* edit button */}
             <button
+            onClick={()=>this.props.editToggle()}
             >Edit</button>
             
             </div>
@@ -31,4 +40,5 @@ export default function Product(props){
 
         </div>
     )
+}
 }
