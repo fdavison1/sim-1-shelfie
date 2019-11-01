@@ -15,12 +15,21 @@ header {
   font-family: sans-serif;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  padding: 0 25px;
 }
 
 header h1 {
   font-size: 3rem;
 }
+
+header img{
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+
 
 .logo {
   border: solid white;
