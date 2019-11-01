@@ -2,6 +2,12 @@ import React from 'react'
 
 export default function Header(){
     return(
-        <div>Header.jsx</div>
+        <header>
+            
+            <div className="logo">V</div>
+           <h1>SHELFIE</h1>
+            
+            
+        </header>
     )
 }

@@ -7,14 +7,66 @@
   box-sizing: border-box;
 }
 
-/* SECTIONS */
-section {
-  border: solid red;
+/* HEADER */
+header {
+  height: 70px;
+  background: #AB2A19;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
+
+header h1 {
+  font-size: 3rem;
+}
+
+.logo {
+  border: solid white;
+  background: white;
+  height: 3rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #AB2A19;
+  border-radius: 50%;
+  margin: 15px;
+}
+
+/* SECTIONS */
 
 /* PRODUCT */
 .product {
   border: solid black;
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+  /* flex-direction: column; */
 }
+
+.product-label {
+  display: flex;
+  flex-direction: column;
+}
+
+/* FORM */
+.form-div {
+  border: solid black;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-around;
+  max-width: 1000px;
+  padding: 5px;
+}
+
+
+
+
+
+

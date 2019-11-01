@@ -4,12 +4,14 @@ export default function Product(props){
     return(
         <div className="product">
 
-            <div className="product-image"></div>
+
             <img src={props.inventory.img} alt={props.inventory.name}/>
+            
+            <div className="product-image">
 
             <div className="product-label"></div>
             <h1>{props.inventory.name}</h1>
-            <h2>{props.inventory.price}</h2>
+            <h2>${props.inventory.price}</h2>
 
             {/* buttons */}
             <div className='buttons2'>
@@ -24,6 +26,7 @@ export default function Product(props){
             <button
             >Edit</button>
             
+            </div>
             </div>
 
         </div>

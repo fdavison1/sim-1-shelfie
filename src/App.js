@@ -10,7 +10,8 @@ export default class App extends React.Component{
   constructor(){
     super()
     this.state = {
-      inventory : []
+      inventory : [],
+      editID: ''
     }
     this.getInventory = this.getInventory.bind(this)
   }
@@ -38,9 +39,10 @@ getInventory(){
   render(){
     return(
       <div className = "App">
-        App.js
         <Header />
         
+        <div className='container'>
+
         <Dashboard 
         inventory = {this.state.inventory}
         getInventory = {this.getInventory}
@@ -49,7 +51,12 @@ getInventory(){
         <Form 
         postProduct = {this.postProduct}
         getInventory = {this.getInventory}
+        editID = {this.state.editID}
+        inventory = {this.props.inventory}
         />
+
+        </div>
+
       </div>
     )
   }

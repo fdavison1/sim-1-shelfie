@@ -8,7 +8,8 @@ export default class Form extends React.Component{
         this.state = {
             img: '',
             name: '',
-            price: ''
+            price: '',
+            editing: false
         }
     }
 
@@ -32,9 +33,10 @@ handleEvent3(e){
 
 cancelButton(){
     this.setState({
-        imageURL: '',
-        product: '',
-        price: ''
+        img: '',
+        name: '',
+        price: '',
+        editing: false
     })
 }
 
@@ -51,14 +53,26 @@ postProduct(){
     this.props.getInventory()
   }
 
+  componentDidUpdate(prevProps){
+    if(this.props.inventory !== prevProps.inventory){
+        this.fetchData(this.props.inventory)
+    }
+  }
+
+  toggleEdit(){
+      this.setState({
+          editing: !this.state.editing
+      })
+  }
+
     render(){
         return(
             <div className='form-div'>
-                Form.jsx
 
                 {/* IMAGE PREVIEW? */}
                 <section className="form-preview">
-                    (Image Preview)
+
+                    <img src={this.state.img} alt=""/>
                 </section>
 
                 {/* INPUTS */}
@@ -67,14 +81,14 @@ postProduct(){
                 <h2>Image URL:</h2>
                 <input 
                 onChange={(e)=>this.handleEvent1(e)}
-                value={this.state.imageURL}
+                value={this.state.img}
                 placeholder='enter image URL'
                 />
                 
                 <h2>Product Name:</h2>
                 <input
                 onChange={(e)=>this.handleEvent2(e)} 
-                value={this.state.product}
+                value={this.state.name}
                 placeholder='enter product name'
                 />
                 
@@ -101,6 +115,14 @@ postProduct(){
                 </button>
 
                 </section>
+
+                <hr/>
+
+                <h2>Editing: 
+                
+                {this.state.editing ? 'true' : 'false'}
+                
+                </h2>
 
             </div>
         )
