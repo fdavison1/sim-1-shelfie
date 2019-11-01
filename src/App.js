@@ -10,24 +10,9 @@ export default class App extends React.Component{
   constructor(){
     super()
     this.state = {
-      inventory : [
-        {
-          name: 'dummy1',
-          price: 'price1',
-          img: 'img1'
-        }, 
-        {
-          name: 'dummy2',
-          price: 'price2',
-          img: 'img2'
-        }, 
-        {
-          name: 'dummy3',
-          price: 'price3',
-          img: 'img3'
-        }
-      ]
+      inventory : []
     }
+    this.getInventory = this.getInventory.bind(this)
   }
 
 
@@ -48,6 +33,8 @@ getInventory(){
 }
 
 
+
+
   render(){
     return(
       <div className = "App">
@@ -58,7 +45,10 @@ getInventory(){
         inventory = {this.state.inventory}
         />
         
-        <Form />
+        <Form 
+        postProduct = {this.postProduct}
+        getInventory = {this.getInventory}
+        />
       </div>
     )
   }

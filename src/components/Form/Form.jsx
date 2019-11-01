@@ -1,25 +1,26 @@
 import React from 'react'
+import axios from 'axios'
 
 
 export default class Form extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-            imageURL: '',
-            product: '',
+            img: '',
+            name: '',
             price: ''
         }
     }
 
 handleEvent1(e){
     this.setState({
-        imageURL: e.target.value
+        img: e.target.value
     })
 }
 
 handleEvent2(e){
     this.setState({
-        product: e.target.value
+        name: e.target.value
     })
 }
 
@@ -36,6 +37,19 @@ cancelButton(){
         price: ''
     })
 }
+
+//AXIOS - POST
+postProduct(){
+    axios
+    .post('/api/inventory', this.state)
+    .then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+    this.cancelButton()
+    this.props.getInventory()
+  }
 
     render(){
         return(
@@ -55,21 +69,21 @@ cancelButton(){
                 onChange={(e)=>this.handleEvent1(e)}
                 value={this.state.imageURL}
                 placeholder='enter image URL'
-                type="text"/>
+                />
                 
                 <h2>Product Name:</h2>
                 <input
                 onChange={(e)=>this.handleEvent2(e)} 
                 value={this.state.product}
                 placeholder='enter product name'
-                type="text"/>
+                />
                 
                 <h2>Price:</h2>
                 <input 
                 onChange={(e)=>this.handleEvent3(e)}
                 value={this.state.price}
                 placeholder='enter price'
-                type="text"/>
+                />
 
                 </section>
 
@@ -81,7 +95,10 @@ cancelButton(){
                 >Cancel
                 </button>
 
-                <button>Add to Inventory</button>
+                <button
+                onClick={()=>this.postProduct()}
+                >Add to Inventory
+                </button>
 
                 </section>
 
