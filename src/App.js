@@ -43,6 +43,7 @@ getInventory(){
         
         <Dashboard 
         inventory = {this.state.inventory}
+        getInventory = {this.getInventory}
         />
         
         <Form 

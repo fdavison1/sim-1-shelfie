@@ -11,6 +11,7 @@ app.use(express.json())
 //endpoints
 app.get('/api/inventory', ctrl.getInventory)
 app.post('/api/inventory', ctrl.postProduct)
+app.delete('/api/inventory/:id', ctrl.deletePost)
 
 //massive - listening
 

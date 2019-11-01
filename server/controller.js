@@ -23,6 +23,14 @@ module.exports = {
             // console.log(result)
             res.status(200).send(result)
         })
+    },
+    deletePost(req, res){
+        const db = req.app.get('db')
+        db.delete_product(req.params.id)
+        .then(result => {
+            // console.log(result)
+            res.status(200).send(result)
+        })
     }
 
     }
