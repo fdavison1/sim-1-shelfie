@@ -9,7 +9,7 @@ constructor(){
         editing: false
     }
     this.deleteProduct = this.deleteProduct.bind(this)
-    this.editToggle = this.editToggle.bind(this)
+    // this.editToggle = this.editToggle.bind(this)
 }
 
 
@@ -22,11 +22,11 @@ constructor(){
         })
     }
 
-    editToggle(){
-        this.setState({
-            editing: !this.state.editing
-        })
-    }
+    // editToggle(){
+    //     this.setState({
+    //         editing: !this.state.editing
+    //     })
+    // }
 
 
     render(){
@@ -36,7 +36,7 @@ constructor(){
             
             <h3>Editing: 
                 
-                {this.state.editing ? 'true' : 'false'}
+                {this.props.editing ? 'true' : 'false'}
                 
             </h3>
 
@@ -48,7 +48,7 @@ constructor(){
                 <Product 
                 inventory = {el}
                 deleteProduct = {this.deleteProduct}
-                editToggle = {this.editToggle}
+                editToggle = {this.props.editToggle}
                 />
                 
                 ))}

@@ -9,7 +9,7 @@ export default class Form extends React.Component{
             img: '',
             name: '',
             price: '',
-            editing: false
+            // editing: false
         }
     }
 
@@ -72,7 +72,14 @@ postProduct(){
                 {/* IMAGE PREVIEW? */}
                 <section className="form-preview">
 
-                    <img src={this.state.img} alt=""/>
+                  {!this.props.editing ?
+
+                    <img src={this.state.img} alt=""/> : null}
+
+                {this.props.editing ? 
+                
+                    <img src={'https://pbs.twimg.com/profile_images/378800000729097494/240cc17eb32a0b014683ed5a99dab86f.jpeg'}/>  : null}
+
                 </section>
 
                 {/* INPUTS */}
@@ -109,10 +116,22 @@ postProduct(){
                 >Cancel
                 </button>
 
+
+
+
+                {!this.props.editing ? 
+                
                 <button
                 onClick={()=>this.postProduct()}
                 >Add to Inventory
-                </button>
+                </button>    : null }
+
+                    {this.props.editing ?
+                    
+                <button>Save Changes</button> : null
+                }
+
+
 
                 </section>
 

@@ -11,9 +11,10 @@ export default class App extends React.Component{
     super()
     this.state = {
       inventory : [],
-      editID: ''
+      editing: false
     }
     this.getInventory = this.getInventory.bind(this)
+    this.editToggle = this.editToggle.bind(this)
   }
 
 
@@ -34,6 +35,11 @@ getInventory(){
 }
 
 
+editToggle(){
+  this.setState({
+      editing: !this.state.editing
+  })
+}
 
 
   render(){
@@ -46,12 +52,14 @@ getInventory(){
         <Dashboard 
         inventory = {this.state.inventory}
         getInventory = {this.getInventory}
+        editToggle = {this.editToggle}
+        editing = {this.state.editing}
         />
         
         <Form 
         postProduct = {this.postProduct}
         getInventory = {this.getInventory}
-        editID = {this.state.editID}
+        editing = {this.state.editing}
         inventory = {this.props.inventory}
         />
 
