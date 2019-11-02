@@ -82,11 +82,11 @@ editFalse(){
         <Header />
         
 
-        {/* { this.state.editing ?
-        <h1>EditID: {this.state.editID}</h1>
-        :null}
+        { this.state.editing ?
+        <h1>editing: TRUE</h1>
+        : <h1>editing: FALSE</h1>}
 
-        <div className='container'>
+        {/*<div className='container'>
 
         <Dashboard 
         inventory = {this.state.inventory}

@@ -10,7 +10,7 @@ export default class Form extends React.Component {
         this.state = {
             img: '',
             name: '',
-            price: '',
+            price: ''
         }
     }
 
@@ -69,13 +69,22 @@ export default class Form extends React.Component {
                 img: res.data[0].img
             })
             // console.log(`test1 ${this.state.name}`)
+            this.getProduct()
         })
     }
 
-    componentDidMount(){
-        this.getProduct(this.props.editID)
-        // console.log('fred')
+
+    //TERNARY
+
+
+    
+        componentDidMount(){
+            this.props.editing ?
+        this.getProduct(this.props.editID) :
+        console.log('fred')
     }
+
+   
 
     //update product (when save changes is clicked)
     updateProduct(id, body){
