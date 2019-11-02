@@ -19,6 +19,7 @@ export default class App extends React.Component{
     this.getInventory = this.getInventory.bind(this)
     this.editToggle = this.editToggle.bind(this)
     this.editFalse = this.editFalse.bind(this)
+    this.updateProduct = this.updateProduct.bind(this)
   }
 
 
@@ -36,6 +37,19 @@ getInventory(){
       inventory: res.data
     })
   })
+}
+
+//update product (save changes button)
+updateProduct(id, body){
+  // console.log(`ID IS ${id}`)
+  axios
+  .put(`/api/inventory/${+id}`, body)
+  .then(res => {
+      this.setState({
+        inventory: res.data
+      })
+  })
+  this.getInventory()
 }
 
 
@@ -118,6 +132,7 @@ editFalse(){
             inventory = {this.props.inventory}
             editFalse = {this.editFalse}
             editID = {this.state.editID}
+            // updateProductFn = {this.updateProduct}
             />
         )}
         /> 
@@ -134,6 +149,7 @@ editFalse(){
             inventory = {this.props.inventory}
             editFalse = {this.editFalse}
             editID = {this.state.editID}
+            updateProductFn = {this.updateProduct}
             />
         )}
         />}

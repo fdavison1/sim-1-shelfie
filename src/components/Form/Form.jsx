@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import { read } from 'fs'
+
 
 
 export default class Form extends React.Component {
@@ -68,13 +68,19 @@ export default class Form extends React.Component {
                 price: res.data[0].price,
                 img: res.data[0].img
             })
-            console.log(`test1 ${this.state.name}`)
+            // console.log(`test1 ${this.state.name}`)
         })
     }
 
     componentDidMount(){
         this.getProduct(this.props.editID)
-        console.log('fred')
+        // console.log('fred')
+    }
+
+    //update product (when save changes is clicked)
+    updateProduct(id, body){
+        // console.log(`ID IS ${id}`)
+        this.props.updateProductFn(id, body)
     }
 
     // componentDidUpdate(prevProps) {
@@ -99,6 +105,14 @@ export default class Form extends React.Component {
                 <Link to='/'>
                 <button>BACK</button>
                 </Link>
+
+                { this.props.editing ?   <h1>
+                
+                ID: {this.props.editID}
+                   
+                </h1> :null}
+
+        
 
                 {/* IMAGE PREVIEW? */}
 
@@ -173,22 +187,21 @@ export default class Form extends React.Component {
 
                     {this.props.editing ?
 
-                        <button>Save Changes</button> : null
-                    }
+                        <Link to ='/'>
+                        <button
+                        onClick={()=>(this.updateProduct(this.props.editID, this.state))}
+                        >Save Changes
+                        </button> 
+                        </Link>
+                        
+                        : null}
 
 
 
                 </section>
 
-                <hr />
+               
 
-
-
-            { this.props.editing ?   <h1>
-                <span>
-                    EDIT ID: {this.props.editID}
-                    </span>    
-                    </h1> :null}
 
             </div>
         )

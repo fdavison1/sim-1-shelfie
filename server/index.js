@@ -13,6 +13,7 @@ app.get('/api/inventory', ctrl.getInventory)
 app.get('/api/inventory/:id', ctrl.getProduct)
 app.post('/api/inventory', ctrl.postProduct)
 app.delete('/api/inventory/:id', ctrl.deletePost)
+app.put('/api/inventory/:id', ctrl.updatePost)
 
 //massive - listening
 
