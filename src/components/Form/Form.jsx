@@ -60,13 +60,15 @@ export default class Form extends React.Component {
         axios
         .get(`/api/inventory/${id}`)
         .then(res => {
-            console.log(res)
+            // console.log(res)
+            // console.log(res.data[0].name)
+            // console.log(`test3: ${res.data.name}`)
             this.setState({
-                name: res.data.name,
-                price: res.data.price,
-                img: res.data.img
+                name: res.data[0].name,
+                price: res.data[0].price,
+                img: res.data[0].img
             })
-            console.log(this.state.name)
+            console.log(`test1 ${this.state.name}`)
         })
     }
 
