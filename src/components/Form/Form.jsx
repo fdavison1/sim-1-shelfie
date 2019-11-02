@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { read } from 'fs'
 
 
 export default class Form extends React.Component {
@@ -10,7 +11,6 @@ export default class Form extends React.Component {
             img: '',
             name: '',
             price: '',
-            // editing: false
         }
     }
 
@@ -55,14 +55,34 @@ export default class Form extends React.Component {
         this.props.getInventory()
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.inventory !== prevProps.inventory) {
-            // this.fetchData(this.props.inventory)
+    //AXIOS - GET SINGLE PRODUCT (for editing)
+    getProduct(id){
+        axios
+        .get(`/api/inventory/${id}`)
+        .then(res => {
+            console.log(res)
             this.setState({
-                img: prevProps.inventory.img
+                name: res.data.name,
+                price: res.data.price,
+                img: res.data.img
             })
-        }
+            console.log(this.state.name)
+        })
     }
+
+    componentDidMount(){
+        this.getProduct(this.props.editID)
+        console.log('fred')
+    }
+
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.inventory !== prevProps.inventory) {
+    //         // this.fetchData(this.props.inventory)
+    //         this.setState({
+    //             img: prevProps.inventory.img
+    //         })
+    //     }
+    // }
 
     toggleEdit() {
         this.setState({

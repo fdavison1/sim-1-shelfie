@@ -31,6 +31,14 @@ module.exports = {
             // console.log(result)
             res.status(200).send(result)
         })
+    },
+    getProduct(req, res){
+        const db = req.app.get('db')
+        db.get_product(req.params.id)
+        .then(result => {
+            console.log(result)
+            res.status(200).send(result)
+        })
     }
 
     }
