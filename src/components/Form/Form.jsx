@@ -90,6 +90,7 @@ export default class Form extends React.Component {
     updateProduct(id, body){
         // console.log(`ID IS ${id}`)
         this.props.updateProductFn(id, body)
+        this.props.editFalse()
     }
 
     // componentDidUpdate(prevProps) {
@@ -101,11 +102,11 @@ export default class Form extends React.Component {
     //     }
     // }
 
-    toggleEdit() {
-        this.setState({
-            editing: !this.state.editing
-        })
-    }
+    // toggleEdit() {
+    //     this.setState({
+    //         editing: !this.state.editing
+    //     })
+    // }
 
     render() {
         return (

@@ -129,6 +129,7 @@ editFalse(){
             postProduct = {this.postProduct}
             getInventory = {this.getInventory}
             editing = {this.state.editing}
+            // editToggle={this.editToggle}
             inventory = {this.props.inventory}
             editFalse = {this.editFalse}
             editID = {this.state.editID}
@@ -148,6 +149,7 @@ editFalse(){
             editing = {this.state.editing}
             inventory = {this.props.inventory}
             editFalse = {this.editFalse}
+            // editToggle={this.editToggle}
             editID = {this.state.editID}
             updateProductFn = {this.updateProduct}
             />
